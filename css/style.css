@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
     margin: 0px;
 }
@@ -141,4 +142,51 @@ div#maincontainer main div.conttext h1 {
  */
 h1 {
     font-size: 2rem;
+=======
+.post-header {
+	display: flex;
+	flex-direction: row;
+	background-color: #228ea6;
+	border-color: #228ea6;
+}
+.post-title {
+	flex-grow: 1;
+}
+.post-comands {
+	color: black;
+}
+.post-comands a {
+	color:black;
+	text-decoration: none;
+}
+.post-content {
+	padding: 10px;
+	margin-bottom: 10px;
+}
+.post-comment-section {
+	border: 1px solid silver;
+	padding: 20px;
+	list-style: none;
+}
+.post-comment {
+	padding: 5px;
+}
+.post-comment-header {
+	width: 100%;
+	padding: 5px;
+}
+.post-comment-name{
+	font-weight: bold;
+	font-size: 1em
+}
+.post-comment-email {
+	font-weight: normal;
+	font-style: italic;
+	color: silver;
+	padding-left: 2px;
+}
+.post-comment-body {
+	border-top: 1px solid silver;
+	padding: 5px 10px 5px 20px;
+>>>>>>> 7cd8705ec6ff84493da0ae4d4f6bd84edceb43f1
 }
