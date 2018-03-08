@@ -1,0 +1,27 @@
+{
+  "name": "duo-project",
+  "version": "1.0.0",
+  "description": "esercitazione del 08-03-2018",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amilafernando92/duo-project.git"
+  },
+  "author": "Joss && Amila",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amilafernando92/duo-project/issues"
+  },
+  "homepage": "https://github.com/amilafernando92/duo-project#readme",
+  "dependencies": {
+    "bootstrap": "3.3.7",
+    "jquery": "3.3.1"
+  },
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "gulp-util": "3.0.8"
+  }
+}
