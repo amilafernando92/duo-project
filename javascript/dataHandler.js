@@ -31,11 +31,11 @@ function fetchPosts(successClb, errorClb) {
 }
 
 function fetchAll(successClb, errorClb) {											//fetch all data and put it into an object
-	var users;
-	var posts;
-	var comments;
+	let users;
+	let posts;
+	let comments;
 
-	var mergeData = function() {													//request the merge
+	function mergeData() {													//request the merge
 		if(users && posts && comments) {
 			for(let uid=0; uid < users.length; uid++) {
 				if(users[uid]) {
@@ -60,7 +60,7 @@ function fetchAll(successClb, errorClb) {											//fetch all data and put it 
 			}
 			successClb(users);														//return the merged object
 		}
-	};
+	}
 
 	fetchUsers(function(data) {
 		users = data;
@@ -76,4 +76,14 @@ function fetchAll(successClb, errorClb) {											//fetch all data and put it 
 		comments = data;
 		mergeData();
 	}, errorClb);
+}
+
+function pushNewPost(title, body, callback) {
+	$.post('https://jsonplaceholder.typicode.com/posts', {title: title, body: body})
+		.done(callback);
+}
+
+function pushEditPost(idPost, title, body, callback) {
+	$.post('https://jsonplaceholder.typicode.com/posts', {title: title, body: body})
+		.done(callback);
 }
