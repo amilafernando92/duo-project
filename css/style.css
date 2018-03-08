@@ -1,35 +1,46 @@
-body {
-    margin: 0px;
+.post-header {
+	display: flex;
+	flex-direction: row;
+	background-color: #228ea6;
+	border-color: #228ea6;
 }
-div#maincontainer main {
-    width: 80%;
-    margin: 0px auto;
+.post-title {
+	flex-grow: 1;
 }
-div#maincontainer main div#usercontainer {
-    margin: 0px auto;
+.post-comands {
+	color: black;
 }
-div#maincontainer main div#usercontainer a, div#maincontainer main div#usercontainer a:hover:first-child {
-    color: #000000;
-    -webkit-transition: -webkit-color 1s ease-in;
-    -moz-transition: -moz-color 1s ease-in;
-    transition: color 1s ease-in;
+.post-comands a {
+	color:black;
+	text-decoration: none;
 }
-div#maincontainer main div#usercontainer a.inactiveLink {
-    pointer-events: none;
-    cursor: default;
+.post-content {
+	padding: 10px;
+	margin-bottom: 10px;
 }
-div#maincontainer main div#usercontainer a:hover {
-    color: #ff00b3;
+.post-comment-section {
+	border: 1px solid silver;
+	padding: 20px;
+	list-style: none;
 }
-div#maincontainer main div#usercontainer a h1 span {
-    opacity: 0;
-    -webkit-transition: -webkit-opacity 1s ease-in;
-    -moz-transition: -moz-opacity 1s ease-in;
-    transition: opacity 1s ease-in;
+.post-comment {
+	padding: 5px;
 }
-div#maincontainer main div#usercontainer a:hover h1 span {
-    opacity: 1;
+.post-comment-header {
+	width: 100%;
+	padding: 5px;
 }
-h1 {
-    font-size: 2rem;
+.post-comment-name{
+	font-weight: bold;
+	font-size: 1em
+}
+.post-comment-email {
+	font-weight: normal;
+	font-style: italic;
+	color: silver;
+	padding-left: 2px;
+}
+.post-comment-body {
+	border-top: 1px solid silver;
+	padding: 5px 10px 5px 20px;
 }
