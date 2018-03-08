@@ -1,0 +1,35 @@
+body {
+    margin: 0px;
+}
+div#maincontainer main {
+    width: 80%;
+    margin: 0px auto;
+}
+div#maincontainer main div#usercontainer {
+    margin: 0px auto;
+}
+div#maincontainer main div#usercontainer a, div#maincontainer main div#usercontainer a:hover:first-child {
+    color: #000000;
+    -webkit-transition: -webkit-color 1s ease-in;
+    -moz-transition: -moz-color 1s ease-in;
+    transition: color 1s ease-in;
+}
+div#maincontainer main div#usercontainer a.inactiveLink {
+    pointer-events: none;
+    cursor: default;
+}
+div#maincontainer main div#usercontainer a:hover {
+    color: #ff00b3;
+}
+div#maincontainer main div#usercontainer a h1 span {
+    opacity: 0;
+    -webkit-transition: -webkit-opacity 1s ease-in;
+    -moz-transition: -moz-opacity 1s ease-in;
+    transition: opacity 1s ease-in;
+}
+div#maincontainer main div#usercontainer a:hover h1 span {
+    opacity: 1;
+}
+h1 {
+    font-size: 2rem;
+}
