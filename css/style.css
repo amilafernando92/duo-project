@@ -2,11 +2,15 @@ body {
     margin: 0px;
 }
 /*
+ *  index.html
+ */
+/*
  *  header
  */
 header#idheader {
     height: 150px;
     display: flex;
+    flex-direction: row;
     background-color: #13b8c1;
 }
 header#idheader div#imgcontainer {
@@ -68,26 +72,69 @@ div#maincontainer main div#usercontainer a:hover h1 span {
 footer#idfooter {
     background-color: #13b8c1;
     display: flex;
+    flex-direction: column;
+    width: 100%;
 }
-footer#idfooter div#containerleft {
-    width: 70%;
+footer#idfooter div#containerall {
+    display: flex;
+    flex-direction: column;
 }
-footer#idfooter div#containerleft div#containerall div#containerrowup {
+footer#idfooter div#containerall div#containerrowup, footer#idfooter div#containerall div#containerrowdown {
+    padding: 20px 0px;
+    display: table;
+    width: 100%;
 }
-footer#idfooter div#containerleft div#containerall div#containerrowdown {
+footer#idfooter div#containerall div#containerrowup h1, footer#idfooter div#containerall div#containerrowdown a {
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 5rem;
 }
-footer#idfooter div#containerleft div#containerall div#containerrowdown div.containerdeveloper div.containerimg img {
+footer#idfooter div#containerall div#containerrowmiddle {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 20px 0px;
+}
+footer#idfooter div#containerall div#containerrowmiddle div.containerdeveloper {
+    width: 50%;
+}
+footer#idfooter div#containerall div#containerrowmiddle div.containerdeveloper div.containerimg {
+    margin: 0px auto;
+}
+footer#idfooter div#containerall div#containerrowmiddle div.containerdeveloper div.containerimg img {
+    display: block;
+    margin: 0px auto;
     border-radius: 50%;
-    width: 10%;
+    width: 15%;
 }
-footer#idfooter div#containerleft div#containerall div#containerrowdown div.containerdeveloper div.containerimg {
+footer#idfooter div#containerall div#containerrowmiddle div.containerdeveloper div.containertext h1 {
+    text-align: center;
 }
-footer#idfooter div#containerleft div#containerall div#containerrowdown div.containerdeveloper div.containerimg img {
-    border-radius: 50%;
-    width: 10%;
+footer#idfooter div#containerall div#containerrowdown a {
+    font-size: 3rem;
+    color: #000000;
+    text-decoration: none;
+    -webkit-transition: -webkit-font-size 1s ease-in;
+    -moz-transition: -moz-font-size 1s ease-in;
+    transition: font-size 1s ease-in;
 }
-footer#idfooter div#containerright {
-    width: 30%;
+footer#idfooter div#containerall div#containerrowdown a:hover {
+    font-size: 5rem;
+    margin: 0px 5%;
+}
+/*
+ *  document.html
+ */
+/*
+ *  main
+ */
+div#maincontainer main div.conttext {
+    font-size: 2rem;
+    margin: 5% 0%;
+}
+div#maincontainer main div.conttext h1 {
+    font-size: 4rem;
 }
 /*
  *  dimensione dei caratteri
