@@ -10,7 +10,7 @@ fetchAll(function(obj) {						//chiamata alla funzione contenuta dentro dataHand
 function inizializzaPagina() {					//inizializza la pagina home con i dati utenti
 	
 
-	showPosts(1)								//temporaneo, solamente per testing
+	showPosts(1);								//temporaneo, solamente per te
 }
 
 function showHome() {
