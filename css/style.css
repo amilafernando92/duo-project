@@ -28,13 +28,6 @@ header#idheader div#textcontainer h1 {
     text-align: center;
     font-size: 4rem;
 }
-header#idheader div#textcontainer div#bottone {
-    opacity: 0;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 header#idheader div#imgcontainer img {
     height: 150px;
     display: block;
@@ -46,6 +39,11 @@ header#idheader div#imgcontainer img {
 div#maincontainer main {
     width: 80%;
     margin: 0px auto;
+}
+div#maincontainer main div#bottone {
+    opacity: 0;
+    height: 100%;
+    margin: 5% 0%;
 }
 div#maincontainer main div#postPage {
     margin: 5% 0%;
@@ -68,14 +66,23 @@ div#maincontainer main div#usercontainer div, div#maincontainer main div#usercon
     display: flex;
     flex-direction: row;
 }
-div#maincontainer main div#usercontainer div h1.h1namecell, div#maincontainer main div#usercontainer a h1.h1namecell {
+div#maincontainer main div#usercontainer div div.boxcontent:first-child, div#maincontainer main div#usercontainer a div.boxcontent:first-child {
+    flex-grow: 1;   
+}
+div#maincontainer main div#usercontainer div div.boxcontent:last-child, div#maincontainer main div#usercontainer a div.boxcontent:last-child {
+    width: 5%;
+}
+div#maincontainer main div#usercontainer div div.boxcontent h1.h1namecell, div#maincontainer main div#usercontainer a div.boxcontent h1.h1namecell {
     width: 30%;
 }
-div#maincontainer main div#usercontainer div h1.h1emailcell, div#maincontainer main div#usercontainer a h1.h1emailcell {
-    flex-grow: 1;
+div#maincontainer main div#usercontainer div div.boxcontent h1.h1emailcell, div#maincontainer main div#usercontainer a div.boxcontent h1.h1emailcell {
+    width: 55%;
 }
-div#maincontainer main div#usercontainer div h1.h1npostcell, div#maincontainer main div#usercontainer a h1.h1npostcell, div#maincontainer main div#usercontainer div h1.h1spancell, div#maincontainer main div#usercontainer a h1.h1spancell {
-    width: 10%;
+div#maincontainer main div#usercontainer div div.boxcontent h1.h1npostcell, div#maincontainer main div#usercontainer a div.boxcontent h1.h1npostcell{
+    width: 15%;
+}
+div#maincontainer main div#usercontainer div div.boxcontent h1.h1spancell, div#maincontainer main div#usercontainer a div.boxcontent h1.h1spancell {
+    width: 5%;
 }
 div#maincontainer main div#usercontainer a h1 span {
     opacity: 0;
@@ -210,4 +217,43 @@ h1 {
 .post-comment-body {
 	border-top: 1px solid silver;
 	padding: 5px 10px 5px 20px;
+}
+.btn {
+    width: 100% !important;
+}
+
+@media all and (max-width: 700px) {
+    header#idheader, header#idheader div#imgcontainer img {
+        height: 100px;
+    }
+    header#idheader div#textcontainer h1 {
+        font-size: 2rem;
+    }
+    div#maincontainer main div#usercontainer div {
+        display: none;
+    }
+    div#maincontainer main div#usercontainer a {
+        display: flex;
+        flex-direction: row;
+        margin: 5% 0%;
+    }
+    div#maincontainer main div#usercontainer a div.boxcontent {
+        display: block;
+    }
+    div#maincontainer main div#usercontainer a div.boxcontent h1.h1spancell {
+        display: table;
+        height: 100%;
+        margin: 0px;
+    }
+    div#maincontainer main div#usercontainer a div.boxcontent h1.h1spancell span {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    div#maincontainer main div#usercontainer div h1, div#maincontainer main div#usercontainer a h1 {
+        width: 90% !important;
+        text-align: center;
+    }
+    .post-comands {
+        flex-direction: column;
+    }
 }
