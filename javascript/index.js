@@ -1,5 +1,6 @@
 //jshint esversion: 6
 var usersInfo;
+var currentUser;
 fetchAll(function(obj) {						//chiamata alla funzione contenuta dentro dataHandler.js
 	usersInfo = obj;
 	inizializzaPagina();
@@ -8,9 +9,9 @@ fetchAll(function(obj) {						//chiamata alla funzione contenuta dentro dataHand
 });
 
 function inizializzaPagina() {					//inizializza la pagina home con i dati utenti
-	
-
-	showPosts(1);								//temporaneo, solamente per te
+	if ($("html").attr ("data-page")==="index") {
+		createBody ();
+	}
 }
 
 function showHome() {
@@ -20,6 +21,8 @@ function showHome() {
 function showPosts(u) {							//aggiunge i post dell'utente cliccato
 	const postPage = $('#postPage');
 	const homePage = $('#userContainer');
+
+	currentUser = u;
 
 	postPage.empty();
 	for(let i=0; i<usersInfo[u].posts.length; i++) {
@@ -31,24 +34,27 @@ function showPosts(u) {							//aggiunge i post dell'utente cliccato
 	//homePage.slideUp();
 }
 
-$(function () {									//caricamento del body
-	
+$(document).ready(function () {					//caricamento del body
+	$('#btnAddPost').click(function() {
+		openEditModal('Aggiungi');
+	});
+    addImgHeader ();
 });
 
 function addPost(post) {
+	const postPage = $('#postPage');
 	let htmlPost = 	'<div class="panel panel-primary">' +
 						'<div class="panel-heading post-header">' +
 							'<h3 class="post-title">'+post.title+'</h3>' +
 							'<div class="post-comands">' +
-								'<button class="btn btn-warning">Elimina</button>' +
-								'<button class="btn btn-success">Modifica</button>' +
+								'<button class="btn btn-warning delete-btn">Elimina</button>' +
+								'<button class="btn btn-success edit-btn">Modifica</button>' +
 							'</div>' +
 						'</div>' +
 						'<div class="panel-body">' +
 							'<h4 class="post-content">'+post.body+'</h4>' +
 							'<ul class="post-comment-section">';
 
-							console.log(post);
 	for(let i=0; i<post.comments.length; i++) {
 		htmlPost +=				'<li class="post-comment">' +
 									'<div class="post-comment-header">' +
@@ -62,18 +68,62 @@ function addPost(post) {
 	htmlPost +=				'</ul>' +
 						'</div>' +
 					'</div>';
-    $('#postPage').append(htmlPost);
+	postPage.append(htmlPost);
+	postPage.find('.panel').last().find('.delete-btn').click(function() {
+		$('#idDelPost').val(post.id);
+		$('#idDelTitle').val(post.title);
+
+		$('#delete_modal').modal('show');
+	});
+	postPage.find('.panel').last().find('.edit-btn').click(function() {
+		openEditModal('Modifica', post.title, post.body, post.id);
+	});
 }
 
-$(document).ready(function () {
-	if ($("html").attr ("data-page")==="index") {
-		createBody ();
+function savePostModal() {
+	const title = $('#idModPostTitle').text();
+	const body = $('#idModBody').val();
+	const idPost = $('#idPost');
+
+	if(idPost.val() !== 0) {
+		pushEditPost(idPost.val(), title, body, function() {
+			//modifiche salvate con successo
+			console.log('Pushing changes');
+
+		});
+	} else {
+		pushNewPost(title, body, function() {
+			//creazione nuovo post
+			console.log('pushinng new post');
+			
+		});
 	}
-    addImgHeader ();
-});
+}
+
+function showSuccess(resp) {
+	$('#success_modal').modal('show');
+	$('#idRspServ').text(resp);
+}
+
+function changeAll () {
+  $("#imgheader").attr ("src", "https://firstsiteguide.com/wp-content/uploads/2017/09/notify-members-new-posts-640x400.png");
+  $("#imgheader").attr ("srcset", "");
+  $("#imgheader").attr ("sizes", "");
+  $("#idheader").css ("background-color", "#228ea6");
+  $("#headertitle").text ("Post - ");
+  $("#idfooter").css ("background-color", "#228ea6");
+}
+function openEditModal(header, title='', body='', id='') {
+	$('#editModalTitle').text(header);
+	$('#idModPostTitle').val(title);
+	$('#idModBody').val(body);
+	$('#idPost').val();
+
+	$('#edit_modal').modal('show');
+}
 
 function createBody () {
-    for (var cont=0;cont<users.length;cont++) {
+    for (var cont=0;cont<usersInfo.length;cont++) {
         //creazione dell'ancora
         var a = document.createElement ("a");
         a.setAttribute ("href", "#");
@@ -84,13 +134,13 @@ function createBody () {
             var h1name = document.createElement ("h1");
             h1name.setAttribute ("id", "h1name"+cont);
             h1name.className = "col-md-4 col-sm-4";
-            h1name.innerHTML = users[cont].name;
+            h1name.innerHTML = usersInfo[cont].name;
             a.appendChild (h1name);
             //creazione del h1 e-mail e aggiunge all'ancora
             var h1email = document.createElement ("h1");
             h1email.setAttribute ("id", "h1email"+cont);
             h1email.className = "col-md-4 col-sm-4";
-            h1email.innerHTML = users[cont].email;
+            h1email.innerHTML = usersInfo[cont].email;
             a.appendChild (h1email);
             //creazione del h1 - e aggiunge all'ancora
             var h1span = document.createElement ("h1");
@@ -102,7 +152,7 @@ function createBody () {
             var h1npost = document.createElement ("h1");
             h1npost.setAttribute ("id", "h1npost"+cont);
             h1npost.className = "col-md-1 col-sm-1";
-            h1npost.innerHTML = Math.ceil(Math.random()*10);
+            h1npost.innerHTML = usersInfo[cont].posts.length;
             a.appendChild (h1npost);
             //creazione del h1 post e aggiunge all'ancora
             var h1post = document.createElement ("h1");
@@ -138,13 +188,4 @@ function addImgHeader () {
 	a.appendChild (imgheader);
 	//cerca div madre e aggiunge l'immagine ad esso
 	document.getElementById ("imgcontainer").appendChild (a);
-}
-
-function changeAll () {
-  $("#imgheader").attr ("src", "https://firstsiteguide.com/wp-content/uploads/2017/09/notify-members-new-posts-640x400.png");
-  $("#imgheader").attr ("srcset", "");
-  $("#imgheader").attr ("sizes", "");
-  $("#idheader").css ("background-color", "#228ea6");
-  $("#headertitle").text ("Post - ");
-  $("#idfooter").css ("background-color", "#228ea6");
 }
