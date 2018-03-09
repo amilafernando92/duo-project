@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Documentazione / Analisi</title>
+    <!-- link css -->
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+    <body>
+        <header id="idheader">
+            <div id="imgcontainer"> 
+            </div>
+            <div id="textcontainer">
+                <h1 id="headertitle">Home</h1>
+            </div>
+        </header>
+        <div id="maincontainer">
+            <main>
+                <div class="conttext">
+                    <h1>Suddivisione del Progetto</h1>
+                    <ul class="mainul">
+                        <li>Inizializzazione del ambiente di lavoro <span class="glyphicon glyphicon-arrow-right"></span> <em>Joss Simonzazzi && Amila Fernando</em></li>
+                        <ul class="subul">
+                            <li>Inizializzazione del npm</li>
+                            <li>Installazione del gulp, gulp-util</li>
+                            <li>Installazione dei framework JQuery e BootStrap</li>
+                            <li>Creazione delle cartelle e i file</li>
+                        </ul>
+                        <li>Creazione di una pagina index.html con la lista dinamica degli utenti <span class="glyphicon glyphicon-arrow-right"></span> <em>Amila Fernando</em></li>
+                        <ul class="subul">
+                            <li>Creazione del main con inserimento dei dati e elementi attraverso Javascript</li>
+                            <li>Utilizzo del css per il stile </li>
+                        </ul>
+                        <li>Creazione della lista dei post su un utente e i suoi commenti <span class="glyphicon glyphicon-arrow-right"></span> <em>Joss Simonzazzi</em></li>
+                        <ul class="subul">
+                            <li>Creazione di un template per la visualizzazione dei post e commenti</li>
+                            <li>Implementazione della funzione per l'aggiunta automatica del template</li>
+                            <li>Creazione delle funzioni "fetch" per creare un oggetto json</li>
+                        </ul>
+                        <li>Creazione del header, footer e documento su come sviluppare la soluzione <span class="glyphicon glyphicon-arrow-right"></span> <em>Amila Fernando</em></li>
+                        <ul class="subul">
+                            <li>Creazione del Header con un immagine responsive, e con cambio del stile attraverso JavaScript</li>
+                            <li>Creazione del Footer con cambio del stile attraverso JavaScript</li>
+                            <li>Creazione della pagina documentazione/analisicon html e css</li>
+                        </ul>
+                        <li>creazione dei modali di modifica, elimina e aggiungi <span class="glyphicon glyphicon-arrow-right"></span> <em>Joss Simonzazzi</em></li>
+                        <ul class="subul">
+                            <li>Creaiozne modale per modifica/aggiunta dei post</li>
+                            <li>Creazione modale per la cancellazione dei post</li>
+                            <li>Binding dei bottoni per modifica/cancellazione</li>
+                        </ul>
+                    </ul>
+                    <p>Ogni lavoro e stato svolto con le tecnologie HTML5, CSS3 e Vanilla JavaScript.</p>
+                    <p>Sono state utilizzate i framework JQuery e BootStrap.</p>
+                </div>
+                <div class="conttext">
+                    <h1>Descrizione del sito</h1>
+                    <p>Pagina index.html
+                        <ul class="mainul">
+                            <li>Header</li>
+                            <ul class="subul">
+                                <li>Header creato con html con inserimento del immagine attraverso JavaScript (document.ready)</li>
+                                <li>Utilizzo del display flex</li>
+                                <li>Utilizzo del display table-cell per allineamento verticale</li>
+                            </ul>
+                            <li>Main</li>
+                            <ul class="subul">
+                                <li>La tabbella del main viene creato attraverso JavaScript (document.ready) tranne la prima riga</li>
+                                <li>E' stato utilizzato BootStrap per la visualizzazione dei dati in formato tabbella</li>
+                                <li>Ogni tupla è un'ancora che al suo click cambia intera pagina</li>
+                                <ul class="subul">
+                                    <li>Header cambia colore e l'immagine</li>
+                                    <li>La tabbella del main viene nascosta e visualizzata pannello BootStrap dei post con i suoi commenti</li>
+                                    <li>Footer cambia colore</li>
+                                </ul>
+                                <li>pannello BootStrap descrizione</li>
+                                    <li>La lista dei post viene creata dopo aver cliccato su un'utente</li>
+                                    <li>I vari post vengono creati in sequenza e una volta terminato mostriamo la lista con un fadein()</li>
+                                    <li>in corrispondenza con ogni post sono presenti 2 bottoni uno per eliminare il post e l'altro per modificarlo</li>
+                                    <li>i due bottoni aprono 2 modali che richiedono input dall'utente per poter procedere</li>
+                                    <li>una volta confermate le modifiche eseguo una chiamata ajax dove invio le modifiche</li>
+                            </ul>
+                            <li>Footer</li>
+                            <ul class="subul">
+                                <li>Per la creazione del footer è stato utilizzato display flex</li>
+                            </ul>
+                        </ul>
+                    </p>
+                </div>
+            </main>
+        </div>
+        <footer id="idfooter">
+            <div id="containerall">
+                <div id="containerrowup">
+                    <h1>Credits</h1>
+                </div>
+                <div id="containerrowmiddle">
+                    <div class="containerdeveloper">
+                        <div class="containerimg">
+                            <img alt="" class="imgavatar" src="https://avatars2.githubusercontent.com/u/36620532">
+                        </div>
+                        <div class="containertext">
+                            <h1>Joss Simonazzi</h1>
+                        </div>
+                    </div>
+                    <div class="containerdeveloper">
+                        <div class="containerimg">
+                            <img alt="" class="imgavatar" src="https://avatars2.githubusercontent.com/u/36620553" width="230">
+                        </div>
+                        <div class="containertext">
+                            <h1>Amila Fernando</h1>
+                        </div>
+                    </div>
+                </div>
+                <div id="containerrowdown">
+                    <a href="document.html">Documentazione / Analisi</a>
+                </div>
+            </div>
+        </footer>
+        <!-- script -->
+        <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="../javascript/index.js"></script>
+    </body>
+</html>
