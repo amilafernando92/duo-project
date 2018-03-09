@@ -29,7 +29,7 @@
                     </a>
                 </div>
                 <div>
-                    <button class="btn btn-default" data-target="#edit_modal" data-toggle="modal">Aggiungi +</button>
+                    <button class="btn btn-default" id="btnAddPost">Aggiungi +</button>
                 </div>
                 <div id="postPage" style="display:none">
                     <div class="panel panel-primary">
@@ -87,7 +87,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary" onclick="savePostModal()">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -109,7 +109,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
-                        <button type="button" class="btn btn-primary">Conferma</button>
+                        <button type="button" class="btn btn-primary" onclick="deletePostModal()">Conferma</button>
                     </div>
                 </div>
             </div>

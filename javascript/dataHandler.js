@@ -87,3 +87,7 @@ function pushEditPost(idPost, title, body, callback) {
 	$.post('https://jsonplaceholder.typicode.com/posts', {title: title, body: body})
 		.done(callback);
 }
+
+function deletePost(id) {
+	//i will do this when i know how to delete them :)
+}

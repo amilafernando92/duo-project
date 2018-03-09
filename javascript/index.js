@@ -22,15 +22,16 @@ function showPosts(u) {							//aggiunge i post dell'utente cliccato
 	const postPage = $('#postPage');
 	const homePage = $('#userContainer');
 
-	currentUser = u;
+    currentUser = u;
 
 	postPage.empty();
 	for(let i=0; i<usersInfo[u].posts.length; i++) {
 		addPost(usersInfo[u].posts[i]);
 	}
 	
-	//cambio pagina	probabilmente ci darà problemi
-	postPage.fadeIn();
+    //cambio pagina	probabilmente ci darà problemi
+    $("#usercontainer").css ("display", "none");
+	postPage.css ("display", "block");
 	//homePage.slideUp();
 }
 
@@ -86,37 +87,49 @@ function savePostModal() {
 	const idPost = $('#idPost');
 
 	if(idPost.val() !== 0) {
-		pushEditPost(idPost.val(), title, body, function() {
-			//modifiche salvate con successo
-			console.log('Pushing changes');
+		pushEditPost(idPost.val(), title, body, function(t) {
+            //modifiche salvate con successo
+            showSuccess(t.body);
+            $('#edit_modal').modal('toggle');
 
 		});
 	} else {
-		pushNewPost(title, body, function() {
+		pushNewPost(title, body, function(t) {
 			//creazione nuovo post
-			console.log('pushinng new post');
+			showSuccess(t.body);
+            $('#edit_modal').modal('toggle');
 			
 		});
 	}
 }
+function deletePostModal () {
+    console.log('a3');
+    deletePost( $('#idPost').val());
+    $('#delete_modal').modal('toggle');
+    showSuccess('Cancellazione avvenuta con successo');
+}
+
 
 function showSuccess(resp) {
 	$('#success_modal').modal('show');
 	$('#idRspServ').text(resp);
 }
 
-function changeAll () {
-  $("#imgheader").attr ("src", "https://firstsiteguide.com/wp-content/uploads/2017/09/notify-members-new-posts-640x400.png");
-  $("#imgheader").attr ("srcset", "");
-  $("#imgheader").attr ("sizes", "");
-  $("#idheader").css ("background-color", "#228ea6");
-  $("#headertitle").text ("Post - ");
-  $("#idfooter").css ("background-color", "#228ea6");
+function changeAll (app) {
+    showPosts(app);
+    $("#imgheader").attr ("src", "https://firstsiteguide.com/wp-content/uploads/2017/09/notify-members-new-posts-640x400.png");
+    $("#imgheader").attr ("srcset", "");
+    $("#imgheader").attr ("sizes", "");
+    $("#idheader").css ("background-color", "#228ea6");
+    $("#headertitle").text ("Post - "+ usersInfo[currentUser].name);
+    $("#idfooter").css ("background-color", "#228ea6");
 }
 function openEditModal(header, title='', body='', id='') {
-	$('#editModalTitle').text(header);
-	$('#idModPostTitle').val(title);
-	$('#idModBody').val(body);
+    console.log(title);
+    console.log(body);
+    $('#editModalTitle').text(header);
+    $('#idModPostTitle').val(title);
+    $('#idModBody').val(body);
 	$('#idPost').val();
 
 	$('#edit_modal').modal('show');
@@ -128,7 +141,7 @@ function createBody () {
         var a = document.createElement ("a");
         a.setAttribute ("href", "#");
         a.setAttribute ("id", "anchor"+cont);
-        a.setAttribute ("onclick", "changeAll ()");
+        a.setAttribute ("onclick", "changeAll("+cont+")");
         a.className = "row";
             //creazione del h1 nome e aggiunge all'ancora
             var h1name = document.createElement ("h1");
