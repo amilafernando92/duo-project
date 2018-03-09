@@ -54,18 +54,28 @@ div#maincontainer main div#usercontainer {
     margin: 0px auto;
     display: block;
 }
-div#maincontainer main div#usercontainer a, div#maincontainer main div#usercontainer a:hover:first-child {
+div#maincontainer main div#usercontainer a {
     color: #000000;
+    text-decoration: none;
     -webkit-transition: -webkit-color 1s ease-in;
     -moz-transition: -moz-color 1s ease-in;
     transition: color 1s ease-in;
 }
-div#maincontainer main div#usercontainer a.inactiveLink {
-    pointer-events: none;
-    cursor: default;
-}
 div#maincontainer main div#usercontainer a:hover {
     color: #13b8c1;
+}
+div#maincontainer main div#usercontainer div, div#maincontainer main div#usercontainer a {
+    display: flex;
+    flex-direction: row;
+}
+div#maincontainer main div#usercontainer div h1.h1namecell, div#maincontainer main div#usercontainer a h1.h1namecell {
+    width: 30%;
+}
+div#maincontainer main div#usercontainer div h1.h1emailcell, div#maincontainer main div#usercontainer a h1.h1emailcell {
+    flex-grow: 1;
+}
+div#maincontainer main div#usercontainer div h1.h1npostcell, div#maincontainer main div#usercontainer a h1.h1npostcell, div#maincontainer main div#usercontainer div h1.h1spancell, div#maincontainer main div#usercontainer a h1.h1spancell {
+    width: 10%;
 }
 div#maincontainer main div#usercontainer a h1 span {
     opacity: 0;

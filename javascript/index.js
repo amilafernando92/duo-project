@@ -143,43 +143,25 @@ function createBody () {
         a.setAttribute ("href", "#");
         a.setAttribute ("id", "anchor"+cont);
         a.setAttribute ("onclick", "changeAll("+cont+")");
-        a.className = "row";
             //creazione del h1 nome e aggiunge all'ancora
             var h1name = document.createElement ("h1");
-            h1name.setAttribute ("id", "h1name"+cont);
-            h1name.className = "col-md-4 col-sm-4";
+            h1name.className = "h1namecell";
             h1name.innerHTML = usersInfo[cont].name;
             a.appendChild (h1name);
             //creazione del h1 e-mail e aggiunge all'ancora
             var h1email = document.createElement ("h1");
-            h1email.setAttribute ("id", "h1email"+cont);
-            h1email.className = "col-md-4 col-sm-4";
+            h1email.className = "h1emailcell";
             h1email.innerHTML = usersInfo[cont].email;
             a.appendChild (h1email);
-            //creazione del h1 - e aggiunge all'ancora
-            var h1span = document.createElement ("h1");
-            h1span.setAttribute ("id", "h1span"+cont);
-            h1span.className = "col-md-1 col-sm-1";
-            h1span.innerHTML = "-";
-            a.appendChild (h1span);
             //creazione del h1 numero di post e aggiunge all'ancora
             var h1npost = document.createElement ("h1");
-            h1npost.setAttribute ("id", "h1npost"+cont);
-            h1npost.className = "col-md-1 col-sm-1";
-            h1npost.innerHTML = usersInfo[cont].posts.length;
+            h1npost.className = "h1npostcell";
+            h1npost.innerHTML = usersInfo[cont].posts.length + " posts";
             a.appendChild (h1npost);
-            //creazione del h1 post e aggiunge all'ancora
-            var h1post = document.createElement ("h1");
-            h1post.setAttribute ("id", "h1post"+cont);
-            h1post.className = "col-md-1 col-sm-1";
-            h1post.innerHTML = "Post";
-            a.appendChild (h1post);
             //creazione del h1 span per hover e aggiunge all'ancora
             var h1span = document.createElement ("h1");
-            h1span.setAttribute ("id", "h1span"+cont);
-            h1span.className = "col-md-1 col-sm-1";
+            h1span.className = "h1spancell";
             var spanarrow = document.createElement ("span");
-            spanarrow.setAttribute ("id", "spanarrow"+cont);
             spanarrow.className = "glyphicon glyphicon-arrow-right";
             h1span.appendChild (spanarrow);
             a.appendChild (h1span);

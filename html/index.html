@@ -2,7 +2,7 @@
 <html lang="en" data-page="index">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--meta name="viewport" content="width=device-width, initial-scale=1.0"-->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title id="pagetitle">Home</title>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
@@ -22,14 +22,12 @@
         <div id="maincontainer">
             <main>
                 <div id="usercontainer">
-                    <a class="row inactiveLink">
-                        <h1 class="col-md-4 col-sm-4" id="h1name">NAME</h1>
-                        <h1 class="col-md-4 col-sm-4" id="h1email">E-MAIL</h1>
-                        <h1 class="col-md-1 col-sm-1" id="h1-"></h1>
-                        <h1 class="col-md-1 col-sm-1" id="h1npost">N°</h1>
-                        <h1 class="col-md-1 col-sm-1" id="h1post">POST</h1>
-                        <h1 class="col-md-1 col-sm-1" id="h1span"><span id="spanarrow"></span></h1>
-                    </a>
+                    <div>
+                        <h1 class="h1namecell" id="h1name">NAME</h1>
+                        <h1 class="h1emailcell" id="h1email">E-MAIL</h1>
+                        <h1 class="h1npostcell" id="h1npost">N° POST</h1>
+                        <h1 class="h1spancell" id="h1span"><span id="spanarrow"></span></h1>
+                    </div>
                 </div>
                 <div id="postPage" style="display:none">
                     <div class="panel panel-primary">
