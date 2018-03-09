@@ -32,7 +32,7 @@ function showPosts(u) {							//aggiunge i post dell'utente cliccato
     //cambio pagina	probabilmente ci darà problemi
     $("#usercontainer").css ("display", "none");
 	postPage.css ("display", "block");
-    $("#bottone").css ("display", "block");
+    $("#bottone").css ("opacity", "1");
 	//homePage.slideUp();
 }
 
@@ -49,7 +49,7 @@ function addPost(post) {
 						'<div class="panel-heading post-header">' +
 							'<h3 class="post-title">'+post.title+'</h3>' +
 							'<div class="post-comands">' +
-								'<button class="btn btn-warning delete-btn">Elimina</button>' +
+                                '<button class="btn btn-danger delete-btn">Elimina</button>' +
 								'<button class="btn btn-success edit-btn">Modifica</button>' +
 							'</div>' +
 						'</div>' +

@@ -20,13 +20,20 @@ header#idheader div#imgcontainer {
 header#idheader div#textcontainer {
     width: 70%;
     display: table;
-    height: 150px;
+    height: 100%;
 }
 header#idheader div#textcontainer h1 {
     display: table-cell;
     vertical-align: middle;
     text-align: center;
     font-size: 4rem;
+}
+header#idheader div#textcontainer div#bottone {
+    opacity: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 header#idheader div#imgcontainer img {
     height: 150px;
@@ -39,6 +46,9 @@ header#idheader div#imgcontainer img {
 div#maincontainer main {
     width: 80%;
     margin: 0px auto;
+}
+div#maincontainer main div#postPage {
+    margin: 5% 0%;
 }
 div#maincontainer main div#usercontainer {
     margin: 0px auto;
@@ -129,9 +139,6 @@ footer#idfooter div#containerall div#containerrowdown a:hover {
 /*
  *  main
  */
-div#maincontainer main div#bottone {
-    display: none;
-}
 div#maincontainer main div.conttext {
     font-size: 2rem;
     margin: 5% 0%;
@@ -148,14 +155,17 @@ h1 {
 .post-header {
 	display: flex;
 	flex-direction: row;
-	background-color: #228ea6;
-	border-color: #228ea6;
+	background-color: #228ea6 !important;
+	border-color: #228ea6 !important;
 }
 .post-title {
 	flex-grow: 1;
 }
 .post-comands {
 	color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .post-comands a {
 	color:black;
