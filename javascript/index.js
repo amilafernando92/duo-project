@@ -74,7 +74,7 @@ function addPost(post) {
 	});
 	postPage.find('.panel').last().find('.edit-btn').click(function() {
 		openEditModal('Modifica', post.title, post.body, post.id);
-	});
+	});kl
 }
 
 function savePostModal() {
