@@ -10,7 +10,7 @@ fetchAll(function(obj) {						//chiamata alla funzione contenuta dentro dataHand
 
 function inizializzaPagina() {					//inizializza la pagina home con i dati utenti
 	if ($("html").attr ("data-page")==="index") {
-		createBody ();
+        createBody ();
 	}
 }
 
@@ -32,6 +32,7 @@ function showPosts(u) {							//aggiunge i post dell'utente cliccato
     //cambio pagina	probabilmente ci darà problemi
     $("#usercontainer").css ("display", "none");
 	postPage.css ("display", "block");
+    $("#bottone").css ("display", "block");
 	//homePage.slideUp();
 }
 

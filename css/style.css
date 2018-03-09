@@ -129,6 +129,9 @@ footer#idfooter div#containerall div#containerrowdown a:hover {
 /*
  *  main
  */
+div#maincontainer main div#bottone {
+    display: none;
+}
 div#maincontainer main div.conttext {
     font-size: 2rem;
     margin: 5% 0%;
