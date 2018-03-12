@@ -1,6 +1,6 @@
 //jshint esversion: 6
-var usersInfo;
-var currentUser;
+let usersInfo;
+let currentUser;
 fetchAll(function(obj) {						//chiamata alla funzione contenuta dentro dataHandler.js
 	usersInfo = obj;
 	inizializzaPagina();
@@ -138,26 +138,26 @@ function openEditModal(header, title='', body='', id='') {
 }
 
 function createBody () {
-    for (var cont=0;cont<usersInfo.length;cont++) {
+    for (let cont=0;cont<usersInfo.length;cont++) {
         //creazione dell'ancora
-        var a = document.createElement ("a");
+        let a = document.createElement ("a");
         a.setAttribute ("href", "#");
         a.setAttribute ("id", "anchor"+cont);
         a.setAttribute ("onclick", "changeAll("+cont+")");
-            var div = document.createElement ("div");
+            let div = document.createElement ("div");
             div.className =  "boxcontent";
                 //creazione del h1 nome e aggiunge all'ancora
-                var h1name = document.createElement ("h1");
+                let h1name = document.createElement ("h1");
                 h1name.className = "h1namecell";
                 h1name.innerHTML = usersInfo[cont].name;
                 div.appendChild (h1name);
                 //creazione del h1 e-mail e aggiunge all'ancora
-                var h1email = document.createElement ("h1");
+                let h1email = document.createElement ("h1");
                 h1email.className = "h1emailcell";
                 h1email.innerHTML = usersInfo[cont].email;
                 div.appendChild (h1email);
                 //creazione del h1 numero di post e aggiunge all'ancora
-                var h1npost = document.createElement ("h1");
+                let h1npost = document.createElement ("h1");
                 h1npost.className = "h1npostcell";
                 h1npost.innerHTML = usersInfo[cont].posts.length + " posts";
                 div.appendChild (h1npost);
@@ -165,28 +165,28 @@ function createBody () {
             div = document.createElement ("div");
             div.className =  "boxcontent";
                 //creazione del h1 span per hover e aggiunge all'ancora
-                var h1span = document.createElement ("h1");
+                let h1span = document.createElement ("h1");
                 h1span.className = "h1spancell";
-                var spanarrow = document.createElement ("span");
+                let spanarrow = document.createElement ("span");
                 spanarrow.className = "glyphicon glyphicon-arrow-right";
                 h1span.appendChild (spanarrow);
                 div.appendChild (h1span);
             a.appendChild (div);
         //cerca div madre e aggiunge l'ancora ad esso
-        var app = document.getElementById ("usercontainer");
+        let app = document.getElementById ("usercontainer");
         app.appendChild (a);
     }
 }
 
 function addImgHeader () {
 	//creazione del img con i suoi attributi
-	var imgheader = document.createElement ("img");
+	let imgheader = document.createElement ("img");
 	imgheader.setAttribute ("id", "imgheader");
 	imgheader.setAttribute ("src", "https://blacksaildivision.com/wp-content/uploads/2015/03/centos-users-and-groups-624x390.jpg");
 	imgheader.setAttribute ("srcset", "https://blacksaildivision.com/wp-content/uploads/2015/03/centos-users-and-groups.jpg 624w, https://blacksaildivision.com/wp-content/uploads/2015/03/centos-users-and-groups-300x188.jpg 300w");
 	imgheader.setAttribute ("sizes", "(max-width: 624px) 100vw, 624px");
 	//creazione dell'ancora con i suoi attributi
-	var a = document.createElement ("a");
+	let a = document.createElement ("a");
 	a.setAttribute ("href", "index.html");
 	a.appendChild (imgheader);
 	//cerca div madre e aggiunge l'immagine ad esso
