@@ -1,24 +1,28 @@
 //jshint esversion: 6
+// jshint unused: false
+/* globals fetchAll, $, pushEditPost, pushNewPost, deletePost */
+
+
 let usersInfo;
 let currentUser;
 fetchAll(function(obj) {						//chiamata alla funzione contenuta dentro dataHandler.js
+	'use strict';
 	usersInfo = obj;
 	inizializzaPagina();
 }, function(e) {
+	'use strict';
 	console.log(e);
 });
 
 function inizializzaPagina() {					//inizializza la pagina home con i dati utenti
+	'use strict';
 	if ($("html").attr ("data-page")==="index") {
         createBody ();
 	}
 }
 
-function showHome() {
-
-}
-
 function showPosts(u) {							//aggiunge i post dell'utente cliccato
+	'use strict';
 	const postPage = $('#postPage');
 	const homePage = $('#userContainer');
 
@@ -30,12 +34,13 @@ function showPosts(u) {							//aggiunge i post dell'utente cliccato
 	}
 	
     //cambio pagina	probabilmente ci darà problemi
-    $("#usercontainer").css ("display", "none");
+    homePage.css ("display", "none");
 	postPage.css ("display", "block");
     $("#bottone").css ("opacity", "1");
 }
 
 $(document).ready(function () {					//caricamento del body
+	'use strict';
 	$('#btnAddPost').click(function() {
 		openEditModal('Aggiungi');
 	});
@@ -43,6 +48,7 @@ $(document).ready(function () {					//caricamento del body
 });
 
 function addPost(post) {
+	'use strict';
 	const postPage = $('#postPage');
 	let htmlPost = 	'<div class="panel panel-primary" id="post_'+post.id+'">' +
 						'<div class="panel-heading post-header">' +
@@ -82,6 +88,7 @@ function addPost(post) {
 }
 
 function savePostModal() {
+	'use strict';
 	const title = $('#idModPostTitle').text();
 	const body = $('#idModBody').val();
 	const idPost = $('#idPost');
@@ -103,6 +110,7 @@ function savePostModal() {
 	}
 }
 function deletePostModal () {
+	'use strict';
 	const postId = $('#idDelPost').val();
 
 	deletePost( postId );
@@ -111,11 +119,13 @@ function deletePostModal () {
     showSuccess('Cancellazione avvenuta con successo');
 }
 function showSuccess(resp) {
+	'use strict';
 	$('#success_modal').modal('show');
 	$('#idRspServ').text(resp);
 }
 
 function changeAll (app) {
+	'use strict';
     showPosts(app);
     $("#imgheader").attr ("src", "https://firstsiteguide.com/wp-content/uploads/2017/09/notify-members-new-posts-640x400.png");
     $("#imgheader").attr ("srcset", "");
@@ -125,9 +135,7 @@ function changeAll (app) {
     $("#idfooter").css ("background-color", "#228ea6");
     $("#btnAddPost").text ("Aggiungi Post all'utente");
 }
-function openEditModal(header, title='', body='', id='') {
-    console.log(title);
-    console.log(body);
+function openEditModal(header, title='', body='', id='') {	//jshint ignore:line
     $('#editModalTitle').text(header);
     $('#idModPostTitle').val(title);
     $('#idModBody').val(body);
@@ -137,6 +145,7 @@ function openEditModal(header, title='', body='', id='') {
 }
 
 function createBody () {
+	'use strict';
     for (let cont=0;cont<usersInfo.length;cont++) {
         //creazione dell'ancora
         let a = document.createElement ("a");
@@ -178,6 +187,7 @@ function createBody () {
 }
 
 function addImgHeader () {
+	'use strict';
 	//creazione del img con i suoi attributi
 	let imgheader = document.createElement ("img");
 	imgheader.setAttribute ("id", "imgheader");
