@@ -33,7 +33,6 @@ function showPosts(u) {							//aggiunge i post dell'utente cliccato
     $("#usercontainer").css ("display", "none");
 	postPage.css ("display", "block");
     $("#bottone").css ("opacity", "1");
-	//homePage.slideUp();
 }
 
 $(document).ready(function () {					//caricamento del body
@@ -45,7 +44,7 @@ $(document).ready(function () {					//caricamento del body
 
 function addPost(post) {
 	const postPage = $('#postPage');
-	let htmlPost = 	'<div class="panel panel-primary">' +
+	let htmlPost = 	'<div class="panel panel-primary" id="post_'+post.id+'">' +
 						'<div class="panel-heading post-header">' +
 							'<h3 class="post-title">'+post.title+'</h3>' +
 							'<div class="post-comands">' +
@@ -104,13 +103,13 @@ function savePostModal() {
 	}
 }
 function deletePostModal () {
-    console.log('a3');
-    deletePost( $('#idPost').val());
+	const postId = $('#idDelPost').val();
+
+	deletePost( postId );
+	$('#post_'+postId).remove();
     $('#delete_modal').modal('toggle');
     showSuccess('Cancellazione avvenuta con successo');
 }
-
-
 function showSuccess(resp) {
 	$('#success_modal').modal('show');
 	$('#idRspServ').text(resp);
@@ -132,7 +131,7 @@ function openEditModal(header, title='', body='', id='') {
     $('#editModalTitle').text(header);
     $('#idModPostTitle').val(title);
     $('#idModBody').val(body);
-	$('#idPost').val();
+	$('#idPost').val(id);
 
 	$('#edit_modal').modal('show');
 }
